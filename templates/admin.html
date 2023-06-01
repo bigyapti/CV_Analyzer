@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Job Vacancy</title>
+  <!-- Add the following line to include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+body {
+  background-color: #165486e5;
+  color: #333333;
+  font-family: 'Questrial', sans-serif;            
+
+
+}
+  
+    .btn {
+      background-color: #28537d;
+      color: #fff;
+    }
+  
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  
+    .content {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 60%;
+      height: 80%;
+  
+    }
+  
+    .form-box {
+      width: 50%;
+      margin-right: 20px;
+      margin-top: 10px;
+    }
+  
+    .image-box {
+      width: 50%;
+    }
+    h2{
+  font-size: 30px;
+    color: #130d3b;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">CV Analyzer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('jobadmin') }}">View Job Vacancies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="wrapper">
+  <div class="content">
+    
+    <div class="form-box">
+      <h2 >Post Job Vacancies</h2>
+      {% if error %}
+      <p style="color: red">{{ error }}</p>
+      {% endif %}
+      <form action="{{ url_for('jobadmin') }}" method="POST">
+        <div class="form-group">
+          <label for="title">Job Title:</label>
+          <input type="text" class="form-control" name="title" id="title" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Job Description:</label>
+          <textarea class="form-control" name="description" id="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" class="form-control" name="location" id="location" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Post Job Vacancy</button>
+      </form>
+    </div>
+    <div class="form-image">
+      <img
+        src="https://thumbs.dreamstime.com/b/technology-women-cartoon-support-vector-illustration-graphic-design-135436495.jpg"
+        width="400" height="400" alt="Job Vacancy Image">
+    </div>
+  </div>
+</div>
+
+
+  <!-- Add the following lines to include Bootstrap JavaScript and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

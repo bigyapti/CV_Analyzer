@@ -1,0 +1,98 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <!-- Add the following line to include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Prompt:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+        body {
+            background-color: #165486e5;
+            font-family: 'Questrial', sans-serif;            
+            color:white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-family: 'Kumbh Sans', sans-serif;
+
+
+        }
+        p {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        .progress {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .alert {
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+    </style>
+   
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">CV Analyzer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto"> <!-- Add the ml-auto class to the ul element -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('upload_cv') }}">Predict Job Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('job_vacancies') }}">View Job Vacancies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+<div class="container my-5">
+    <div class="row align-items-start">
+        <div class="col-md-12">
+            <h2 class="text">Prediction:</h2>
+            <div class="alert alert-primary text-center" role="alert">
+                <h3>{{ predicted_category_name }}</h3>
+            </div>
+            <h2>Resume:</h2>
+            <!-- <a class="nav-link" href="{{ url_for('view_pdf') }}">View Pdf</a> -->
+            <iframe scrolling="no" src="http://127.0.0.1:5000/view_pdf" style="border: 0px none; margin-left: 0px; height: 60%; margin-top: 0px; width: 60%;"></iframe>
+            <h2>Recommended Skills:</h2>
+            <div class="d-flex flex-wrap">
+                {% for skill in skills %}
+                <button type="button" class="btn btn-primary my-2 mx-2">{{ skill }}</button>
+                {% endfor %}
+            </div>            
+            <h2>Resume Score:</h2>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {{ score }}%" aria-valuenow="{{ score }}" aria-valuemin="0" aria-valuemax="100">{{ score }}%</div>
+            </div>
+            <h2>Email:</h2>
+            <p>{{ email }}</p>
+            <h2>URL:</h2>
+            <p>{{ url }}</p>
+            <h2>Name:</h2>
+            <p>{{ name }}</p>
+            <h2>Phone:</h2>
+            <p>{{ Phone }}</p>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
