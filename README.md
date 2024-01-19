@@ -22,7 +22,7 @@ Post Job vacancies page(recruiter side):
 
 ![image-7](https://github.com/bigyapti/CV_Analyzer/assets/69586215/3a729ac7-42cb-4c10-872d-baeb42b2a403)
 
-Check job vacancies and applied candidates page(recruiter side):
+Check job vacancies and rank applied candidates page(recruiter side):
 
 ![image-5](https://github.com/bigyapti/CV_Analyzer/assets/69586215/b00fc8bf-e03b-4547-94ec-f7bb760e5956)
 
